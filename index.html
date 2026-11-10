@@ -5,7 +5,7 @@
 <header><strong>八马茶业 · 技改方案</strong><nav><a href="#flow">流程</a><a href="#hardware">硬件</a><a href="#software">软件</a><a href="#cost">成本</a><a href="#trial">试点确认</a></nav></header>
 <main>
 <section class="split"><div><small>蓝色周转框方案 · 现场评审</small><h1>八马茶业包装产线改造</h1><p>沿用原打泡机和共用主带。袋仓识码时绑定生产位置与时间，出料按实物每 20 包集批，整组直接落入蓝框。</p><a href="#flow">开始流程讲解 ↓</a></div><figure><img src="assets/line-site.png" alt="八马现有打泡机与共用输送区域"><figcaption>现场参考照片</figcaption></figure></section>
-<section id="flow"><h2>01　四步流程演示</h2><div id="shots"></div><h3>装盒工位｜固定相机激活盒码并绑定整组</h3><p>每个包装工位使用一套时空码硬件系统。工业相机固定在台面上方，向下对准扫码区，接入处理主板与北斗定位授时终端。</p><button class="zoom" data-img="assets/box-station.png" aria-label="放大装盒工位三步图"><img src="assets/box-station.png" alt="固定相机依次扫盒码和小包码，完成整组绑定"></button><ol><li>将盒码朝上放到扫码区。相机读取盒码后，系统使用工位位置和时间信息触发盒码激活。</li><li>从本蓝框取任意一包已有有效组关联的小包，码面朝上放到同一扫码区。</li><li>系统用小包码查到组号，再把盒码绑定到这一组 20 包。确认成功后装盒。</li></ol><details open><summary>完整六泳道时序图</summary><p>读码激活与实物计数分别记录。系统在满组后关联已识别袋码，码与实物的组归属用编号实袋核对。</p><figure class="diagram"><button class="zoom" data-img="assets/sequence.png" aria-label="放大完整泳道图"><img src="assets/sequence.png" alt="完整六泳道时序图"></button><figcaption><a href="assets/sequence.pdf" target="_blank">打开原图 PDF</a></figcaption></figure></details></section>
+<section id="flow"><h2>01　四步流程演示</h2><div id="shots"></div><h3>装盒工位｜固定相机激活盒码并绑定整组</h3><p>每个包装工位使用一套时空码硬件系统。工业相机固定在台面上方，向下对准扫码区，黑色黄顶的北斗定位授时终端固定在相机支架侧面。</p><button class="zoom" data-img="assets/box-station.png" aria-label="放大装盒工位三步图"><img src="assets/box-station.png" alt="固定相机依次扫盒码和小包码，完成整组绑定"></button><ol><li>将盒码朝上放到扫码区。相机读取盒码后，系统使用工位位置和时间信息触发盒码激活。</li><li>从本蓝框取任意一包已有有效组关联的小包，码面朝上放到同一扫码区。</li><li>系统用小包码查到组号，再把盒码绑定到这一组 20 包。确认成功后装盒。</li></ol><details open><summary>完整六泳道时序图</summary><p>读码激活与实物计数分别记录。系统在满组后关联已识别袋码，码与实物的组归属用编号实袋核对。</p><figure class="diagram"><button class="zoom" data-img="assets/sequence.png" aria-label="放大完整泳道图"><img src="assets/sequence.png" alt="完整六泳道时序图"></button><figcaption><a href="assets/sequence.pdf" target="_blank">打开原图 PDF</a></figcaption></figure></details></section>
 <section id="hardware"><h2>02　硬件与采购</h2><div class="split"><figure><img src="assets/terminal.png" alt="自研北斗定位授时终端外观"><figcaption>项目团队自研北斗定位授时终端 · 外观参考</figcaption></figure><div><h3>终端固定在生产线指定位置</h3><p>将终端贴装或固定在经现场确认的机架位置，建立终端与产线、工位的对应关系。相机识别有效小包码后，时空码软硬件系统读取对应工位的位置和授时信息，触发激活并保存结果。</p><p>试点核对安装点的接收质量、供电通信和时间同步状态。设备数量、安装方式及费用单列确认。</p></div></div>
 <h3>时空码硬件系统｜按工位配套</h3><p>每套包含自研北斗时空定位终端、工业相机及处理主板。每条产线至少 3 套，打泡机侧 1 套，包装侧基准 2 套。包装侧每个同时作业的人员工位配置 1 套，超过两人按实际并行工位增加。</p>
 <div class="table"><table><tr><th>工位</th><th>试点数量</th><th>安装与用途</th></tr><tr><td>打泡机</td><td>1 套</td><td>终端固定于产线，相机对准袋仓下方露码位置，主板处理识读结果并触发小包码激活。</td></tr><tr><td>装盒</td><td>基准 2 套</td><td>每个包装工位配置一套。相机安装在盒码经过或定位的位置，主板接收读码结果，结合该工位的位置和授时激活包装盒时空码。</td></tr></table></div>
@@ -28,7 +28,7 @@
 </main><dialog id="viewer"><img alt="分镜或泳道图预览"><nav><button id="prev">上一张</button><button id="next">下一张</button><button id="close">关闭</button></nav></dialog>
 <script>
 const steps=[
-['小包时空码激活',['原机位置','袋仓下方相机','识别有效码后触发激活'],'相机对准最下方平整包装袋的露码位置，系统结合工位位置与授时记录激活。'],
+['小包时空码激活',['原机位置','袋仓下方相机与机架侧北斗终端','识别有效码后触发激活'],'相机对准最下方平整包装袋的露码位置，系统结合工位位置与授时记录激活。'],
 ['满 20 包建立组关联',['出料滑道','光电确认入斗','满 20 包生成组号'],'光电按实物计数，组码清单记录已识别并关联的袋码。'],
 ['整组直接落框',['蓝框到位','斗口前挡料','开底门直接落框'],'第 20 包入斗后挡住下一包，单斗开底，整组落入正下方蓝框。'],
 ['静置质检后替换',['按组静置 24 小时','取出不良包并补入合格包'],'检查鼓包、漏气和外观。直接换入备用包。如采用扫码更新，可在固定相机工位登记移出及补入小包。']];
