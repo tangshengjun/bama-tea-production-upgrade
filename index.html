@@ -1,0 +1,45 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>八马茶业｜包装产线技改方案</title>
+<style>
+*{box-sizing:border-box}body{margin:0;color:#233830;background:#f5f7f5;font:17px/1.7 system-ui,sans-serif}header{position:sticky;top:0;z-index:2;background:#153e34;color:white;padding:12px max(4vw,16px);display:flex;gap:20px;align-items:center;justify-content:space-between}nav{display:flex;flex-wrap:wrap;gap:14px}a{color:#125b72}header a{color:white;text-decoration:none}main{max-width:1180px;margin:auto;padding:24px}section{scroll-margin-top:100px;background:white;margin:18px 0;padding:clamp(18px,4vw,48px);border:1px solid #dce5df;border-radius:16px}h1,h2,h3{line-height:1.25;color:#153e34}h1{font-size:clamp(32px,5vw,62px);margin:.3em 0}h2{font-size:32px}h3{margin-top:28px}img{max-width:100%;display:block;border-radius:8px}figure{margin:0}figcaption,small{color:#486359;font-size:14px}.split,.shots,.metrics{display:grid;gap:18px}.split{grid-template-columns:1fr 1fr;align-items:center}.shots{grid-template-columns:repeat(3,1fr)}.metrics{grid-template-columns:repeat(3,1fr)}.metrics div,.callout{background:#e9f3ef;padding:15px;border-radius:8px}.metrics strong{display:block;font-size:25px}.shots button,.zoom{padding:0;border:0;background:none;cursor:zoom-in;width:100%}button,input{font:inherit}button{cursor:pointer}.table{overflow:auto}table{width:100%;border-collapse:collapse}td,th{padding:10px;text-align:left;border-bottom:1px solid #dce5df;vertical-align:top}th{background:#e9f3ef}input{width:110px;margin:5px}.diagram{max-width:100%;margin:auto}dialog{max-width:96vw;max-height:96vh;border:0;border-radius:12px;padding:12px}dialog::backdrop{background:#102520d9}dialog img{max-height:82vh;object-fit:contain;margin:auto}dialog nav{justify-content:center;margin-top:10px}@media(max-width:700px){header{position:static;display:block}.split,.metrics{grid-template-columns:1fr}.shots{grid-template-columns:1fr}main{padding:10px}}
+</style>
+<header><strong>八马茶业 · 技改方案</strong><nav><a href="#flow">流程</a><a href="#hardware">硬件</a><a href="#software">软件</a><a href="#cost">成本</a><a href="#trial">试点确认</a></nav></header>
+<main>
+<section class="split"><div><small>蓝色周转框方案 · 现场评审</small><h1>八马茶业包装产线改造</h1><p>沿用原打泡机和共用主带。袋仓识码时绑定生产位置与时间，出料按实物每 20 包集批，整组直接落入蓝框。</p><a href="#flow">开始流程讲解 ↓</a></div><figure><img src="assets/line-site.png" alt="八马现有打泡机与共用输送区域"><figcaption>现场参考照片</figcaption></figure></section>
+<section id="flow"><h2>01　四步流程演示</h2><div id="shots"></div><details open><summary>完整六泳道时序图</summary><p>读码激活与实物计数分别记录。系统在满组后关联已识别袋码，码与实物的组归属用编号实袋核对。</p><figure class="diagram"><button class="zoom" data-img="assets/sequence.png" aria-label="放大完整泳道图"><img src="assets/sequence.png" alt="完整六泳道时序图"></button><figcaption><a href="assets/sequence.pdf" target="_blank">打开原图 PDF</a></figcaption></figure></details></section>
+<section id="hardware"><h2>02　硬件与采购</h2><div class="split"><figure><img src="assets/terminal.png" alt="自研北斗定位授时终端外观"><figcaption>项目团队自研北斗定位授时终端 · 外观参考</figcaption></figure><div><h3>终端固定在生产线指定位置</h3><p>将终端贴装或固定在经现场确认的机架位置，建立终端与产线、工位的对应关系。相机识别有效小包码后，时空码软硬件系统读取对应工位的位置和授时信息，触发激活并保存结果。</p><p>试点核对安装点的接收质量、供电通信和时间同步状态。设备数量、安装方式及费用单列确认。</p></div></div>
+<h3>时空码硬件系统｜按工位配套</h3><p>每套包含自研北斗时空定位终端、工业相机及处理主板。每条产线至少 3 套，打泡机侧 1 套，包装侧基准 2 套。包装侧每个同时作业的人员工位配置 1 套，超过两人按实际并行工位增加。</p>
+<div class="table"><table><tr><th>工位</th><th>试点数量</th><th>安装与用途</th></tr><tr><td>打泡机</td><td>1 套</td><td>终端固定于产线，相机对准袋仓下方露码位置，主板处理识读结果并触发小包码激活。</td></tr><tr><td>装盒</td><td>基准 2 套</td><td>每个包装工位配置一套。相机安装在盒码经过或定位的位置，主板接收读码结果，结合该工位的位置和授时激活包装盒时空码。</td></tr></table></div>
+<h3>流水线改造硬件｜按一条试点产线报价</h3>
+<div class="table"><table><tr><th>模块</th><th>配置</th><th>联试确认</th></tr><tr><td>集批机械</td><td>进料滑道、斗口挡板、单个方口集批斗及宽口底门</td><td>挡住第21包、整组直落蓝框、排空与复位</td></tr><tr><td>驱动与检测</td><td>SMC CQ2-Z 气缸候选，欧姆龙 E3Z-T61／T81 对射光电</td><td>气缸行程及动作时间，光电位置与控制输入匹配</td></tr><tr><td>电控与周转</td><td>控制器及 I/O、布线、接框定位、满框横移及主带适配、蓝框及静置货架</td><td>按现场需改工位和复用设备核定数量</td></tr></table></div>
+<figure><img src="assets/review-line.png" alt="十台独立集批并接共用主带"><figcaption>整排布置示意。绿框示意相邻机位，试点预算按一条产线核算。</figcaption></figure></section>
+<section id="software"><h2>03　软件开发与接口</h2><div class="callout">相机识码 → 按工位取得北斗位置与授时 → 激活并记账。光电按实物计数 → 满 20 包生成组号 → 关联已识别袋码。</div><div class="table"><table><tr><th>任务</th><th>交付与验证</th></tr><tr><td>工位与终端配置</td><td>登记终端、产线及工位，接入位置、时间和状态。验证数据时效与异常记录。</td></tr><tr><td>读码和激活</td><td>接入读码事件，保存袋码、工位、位置、时间及激活结果，支持去重与补传。原机按原节拍运行。</td></tr><tr><td>计数与组框交接</td><td>接入计数与满组事件，保存组号、有效袋码清单及蓝框交接记录。编号实袋核对切组。</td></tr><tr><td>质检与装盒</td><td>支持直接换包或扫码更新。包装工位相机读取盒码，系统结合该工位北斗位置和授时触发盒码激活。再读取组内一个有效小包码，将已激活盒码与组号绑定。</td></tr><tr><td>查询与恢复</td><td>按袋码或盒码查组、补换历史和流向，验证重启恢复及操作日志。</td></tr></table></div></section>
+<section id="cost"><h2>04　成本与预期效果</h2><p>试点预算按一条完整产线报价。设备单价、软件工时和安装费待确认。</p>
+<div class="table"><table><tr><th>费用项</th><th>一条线核算方式</th></tr>
+<tr><td>时空码硬件系统</td><td>至少 3 套 × 套件单价，另列固定安装、供电通信及调试。每套分列自研终端、工业相机、主板。</td></tr>
+<tr><td>流水线改造</td><td>滑道、挡板、集批斗、宽口底门、气缸、光电、电控、接框及输送适配，按实际数量和施工费核算。</td></tr>
+<tr><td>软件① 视觉扫码与激活</td><td>小包及盒码识读、主板接入、位置时间采集、激活请求和异常补传。</td></tr>
+<tr><td>软件② 时空码平台发码服务端</td><td>发码与批量管理、激活接口、组盒关系、补换记录及查询。</td></tr>
+<tr><td>软件③ 计数与翻斗控制</td><td>光电计数、20包组批、挡板与底门时序、排空复位及联调。</td></tr>
+<tr><td>周转与运维</td><td>蓝框、货架、回框清洁，以及年度运维单列。扩线按新增设备、适配及安装增量报价。</td></tr></table></div>
+<h3>蓝框静置测算</h3><label>日产小包 <input id="daily" type="number" min="0" value="500000"></label><label>静置小时 <input id="hours" type="number" min="0" value="24"></label><label>元／框 <input id="price" type="number" min="0" step=".01" value="8"></label>
+<div class="metrics"><div>每日组数<strong id="groups"></strong></div><div>静置占用基数<strong id="bins"></strong></div><div>购框算例<strong id="amount"></strong></div></div><small>每框 20 包。日产与单价为测算假设，另计待检、回流、清洁、备用及峰值占用。</small>
+<div class="table"><table><tr><th>预期效果</th><th>试点怎么验证</th></tr><tr><td>为激活记录提供产线位置和时间</td><td>抽查设备映射、位置来源、时钟状态和激活日志</td></tr><tr><td>维持原线节拍，减少人工接料与整理</td><td>对比同产品同工况的产出、人工工时和周转耗时</td></tr><tr><td>提高分组与追溯可核对性</td><td>核查连续 20 包切组、组框交接、补换和组盒关系</td></tr><tr><td>支持渠道核查</td><td>用有效关联码查询组盒记录，再比对授权渠道与流向</td></tr></table></div></section>
+<section id="trial"><h2>05　与八马确认后启动试点</h2><div class="callout">确认一条试点产线 → 实袋与包装联试 → 三方验收 → 确认后推广</div><ul><li><b>八马</b>确认试点产线、产品规格、包装人员及并行工位数量、产量统计范围、蓝框尺寸、24 小时静置安排及补换规则。</li><li><b>原设备厂家</b>确认出料口空间、机械固定点、原控制接口和安全边界。</li><li><b>实施方</b>提交点位图、北斗接收与授时测试、设备和软件报价及交期。</li><li><b>三方共同</b>确认原线产出基准、试产时长、样本量，以及计数归组、落框、并线、换包和查询的通过条件。</li></ul></section>
+</main><dialog id="viewer"><img alt="分镜或泳道图预览"><nav><button id="prev">上一张</button><button id="next">下一张</button><button id="close">关闭</button></nav></dialog>
+<script>
+const steps=[
+['小包时空码激活',['原机位置','袋仓下方相机','识别有效码后触发激活'],'相机对准最下方平整包装袋的露码位置，系统结合工位位置与授时记录激活。'],
+['满 20 包建立组关联',['出料滑道','光电确认入斗','满 20 包生成组号'],'光电按实物计数，组码清单记录已识别并关联的袋码。'],
+['整组直接落框',['蓝框到位','斗口前挡料','开底门直接落框'],'第 20 包入斗后挡住下一包，单斗开底，整组落入正下方蓝框。'],
+['静置质检后替换',['按组静置 24 小时','取出不良包','直接替换或扫码更新'],'检查鼓包、漏气和外观。直接换入备用包，或登记移出并扫描补入包更新组关联。']];
+const shotList=[];
+document.querySelector('#shots').innerHTML=steps.map(([title,labels,note],i)=>'<h3>0'+(i+1)+'　'+title+'</h3><p>'+note+'</p><div class="shots">'+labels.map((label,j)=>{const src='assets/0'+(i+1)+'-'+(j+1)+'.png';shotList.push(src);return '<figure><button data-img="'+src+'" aria-label="放大'+label+'"><img loading="lazy" src="'+src+'" alt="'+label+'"></button><figcaption>'+label+'</figcaption></figure>'}).join('')+'</div>').join('');
+const viewer=document.querySelector('#viewer');let current=-1;
+function show(src){current=shotList.indexOf(src);viewer.querySelector('img').src=src;for(const id of ['prev','next']) document.getElementById(id).hidden=current<0;if(!viewer.open)viewer.showModal()}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-img]');if(b)show(b.dataset.img)});
+function move(delta){if(current>=0)show(shotList[(current+delta+shotList.length)%shotList.length])}
+document.querySelector('#prev').onclick=()=>move(-1);document.querySelector('#next').onclick=()=>move(1);document.querySelector('#close').onclick=()=>viewer.close();
+viewer.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')move(-1);if(e.key==='ArrowRight')move(1)});
+function calc(){const read=id=>Math.max(0,Number(document.getElementById(id).value)||0);const g=Math.ceil(read('daily')/20),b=Math.ceil(g*read('hours')/24);for(const [id,value] of Object.entries({groups:g,bins:b,amount:b*read('price')}))document.getElementById(id).textContent=value.toLocaleString('zh-CN',{maximumFractionDigits:2})+(id==='amount'?' 元':'')}
+for(const id of ['daily','hours','price'])document.getElementById(id).addEventListener('input',calc);calc();
+</script></html>
