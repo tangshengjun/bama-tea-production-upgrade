@@ -33,6 +33,16 @@
 <tr><td>安装交付</td><td>安装、联调、试产及培训</td><td>12,000 元</td></tr>
 <tr><td>平台运行基础资源</td><td>服务器、数据库算力、存储、备份及网络，由八马提供并承担费用。按年新增2亿码及实际查询峰值评估配置。</td><td>八马承担<br>不计入本次技改预算</td></tr><tr><td><b>试点总预算</b></td><td><b>含一台打泡机、两个包装工位及周转筐</b></td><td><b>137,000 元</b></td></tr></table></div>
 <p class="callout"><b>试点预算约 14 万元。</b>筐价及 20% 周转余量为测算假设，结合质检、装盒与回筐周期确认。货架按现场已有设施复用，新增货架和年度运维另计。服务器、算力、存储、备份及网络由八马提供并承担费用，实施方负责提出资源需求和部署适配。</p>
+<h3>年度用码费｜分段累进计价</h3><p>按年度累计用码量分段计价，各段费用相加。首年按标准费用减免 20%，第二年起按标准费用结算。用码费与一次性技改投入分别核算。</p>
+<div class="table"><table><tr><th>年度用码分段</th><th>分段单价</th><th>该段最高费用</th><th>档位上限累计标准费用</th><th>首年费用（八折）</th><th>标准综合单价</th></tr>
+<tr><td>前 500 万个</td><td>0.10 元／码</td><td>50 万元</td><td>50 万元</td><td>40 万元</td><td>0.100 元／码</td></tr>
+<tr><td>超过 500 万至 3,000 万个</td><td>0.05 元／码</td><td>125 万元</td><td>175 万元</td><td>140 万元</td><td>约 0.0583 元／码</td></tr>
+<tr><td>超过 3,000 万至 1 亿个</td><td>0.02 元／码</td><td>140 万元</td><td>315 万元</td><td>252 万元</td><td>0.0315 元／码</td></tr>
+<tr><td>超过 1 亿个的部分</td><td>0.01 元／码</td><td>按超出量计算</td><td>315 万元＋超出部分费用</td><td>累计标准费用 × 80%</td><td>标准费用 ÷ 年度总量</td></tr>
+<tr><td><b>示例：全年 2 亿个</b></td><td>各段分别计价</td><td>50＋125＋140＋100 万元</td><td><b>415 万元</b></td><td><b>332 万元</b></td><td><b>0.02075 元／码</b></td></tr></table></div>
+<small>前三档累计费用和综合单价按该档上限计算。服务器、算力与存储由八马承担。</small>
+<p><label>年度用码量（万个） <input id="codeVolume" type="number" min="0" step="1" value="20000"></label></p>
+<div class="metrics"><div>标准年度费用<strong id="standardFee"></strong></div><div>首年费用<strong id="firstFee"></strong></div><div>标准综合单价<strong id="unitFee"></strong></div></div>
 <h3>蓝框静置测算</h3><label>日产小包 <input id="daily" type="number" min="0" value="25000"></label><label>静置小时 <input id="hours" type="number" min="0" value="24"></label><label>周转余量 % <input id="reserve" type="number" min="0" value="20"></label><label>元／框 <input id="price" type="number" min="0" step=".01" value="8"></label>
 <div class="metrics"><div>每日组数<strong id="groups"></strong></div><div>含余量筐数<strong id="bins"></strong></div><div>周转筐投入<strong id="amount"></strong></div></div><small>每框 20 包。日产与单价为测算假设，余量覆盖待检、回流和备用占用，具体比例按实际周期确认。</small>
 <div class="table"><table><tr><th>预期效果</th><th>试点怎么验证</th></tr><tr><td>为激活记录提供产线位置和时间</td><td>抽查设备映射、位置来源、时钟状态和激活日志</td></tr><tr><td>维持原线节拍，减少人工接料与整理</td><td>对比同产品同工况的产出、人工工时和周转耗时</td></tr><tr><td>提高分组与追溯可核对性</td><td>核查连续 20 包切组、组框交接、补换和组盒关系</td></tr><tr><td>支持渠道核查</td><td>用有效关联码查询组盒记录，再比对授权渠道与流向</td></tr></table></div></section>
@@ -54,4 +64,16 @@ document.querySelector('#prev').onclick=()=>move(-1);document.querySelector('#ne
 viewer.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')move(-1);if(e.key==='ArrowRight')move(1)});
 function calc(){const read=id=>Math.max(0,Number(document.getElementById(id).value)||0);const g=Math.ceil(read('daily')/20),b=Math.ceil(g*read('hours')/24*(1+read('reserve')/100));for(const [id,value] of Object.entries({groups:g,bins:b,amount:b*read('price')}))document.getElementById(id).textContent=value.toLocaleString('zh-CN',{maximumFractionDigits:2})+(id==='amount'?' 元':'')}
 for(const id of ['daily','hours','price','reserve'])document.getElementById(id).addEventListener('input',calc);calc();
+
+function codePricing(){
+ const count=Math.max(0,Number(document.getElementById('codeVolume').value)||0)*10000;
+ let remaining=count,fee=0;
+ for(const [capacity,rate] of [[5000000,.1],[25000000,.05],[70000000,.02],[Infinity,.01]]){
+  const quantity=Math.min(remaining,capacity);fee+=quantity*rate;remaining-=quantity;
+ }
+ document.getElementById('standardFee').textContent=(fee/10000).toLocaleString('zh-CN',{maximumFractionDigits:2})+' 万元';
+ document.getElementById('firstFee').textContent=(fee*.8/10000).toLocaleString('zh-CN',{maximumFractionDigits:2})+' 万元';
+ document.getElementById('unitFee').textContent=(count?fee/count:0).toFixed(5)+' 元／码';
+}
+document.getElementById('codeVolume').addEventListener('input',codePricing);codePricing();
 </script></html>
