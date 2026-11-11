@@ -31,12 +31,12 @@
 <tr><td><b>软件小计</b></td><td></td><td><b>65,000 元</b></td></tr>
 <tr><td>蓝色周转筐</td><td>1,250 个静置基数＋20% 周转余量，合计 1,500 个 × 8 元</td><td>12,000 元</td></tr>
 <tr><td>安装交付</td><td>安装、联调、试产及培训</td><td>12,000 元</td></tr>
-<tr><td><b>试点总预算</b></td><td><b>含一台打泡机、两个包装工位及周转筐</b></td><td><b>137,000 元</b></td></tr></table></div>
-<p class="callout"><b>试点预算约 14 万元。</b>筐价及 20% 周转余量为测算假设，结合质检、装盒与回筐周期确认。货架按现场已有设施复用，新增货架和年度运维另计。</p>
+<tr><td>平台运行基础资源</td><td>服务器、数据库算力、存储、备份及网络，由八马提供并承担费用。按年新增2亿码及实际查询峰值评估配置。</td><td>八马承担<br>不计入本次技改预算</td></tr><tr><td><b>试点总预算</b></td><td><b>含一台打泡机、两个包装工位及周转筐</b></td><td><b>137,000 元</b></td></tr></table></div>
+<p class="callout"><b>试点预算约 14 万元。</b>筐价及 20% 周转余量为测算假设，结合质检、装盒与回筐周期确认。货架按现场已有设施复用，新增货架和年度运维另计。服务器、算力、存储、备份及网络由八马提供并承担费用，实施方负责提出资源需求和部署适配。</p>
 <h3>蓝框静置测算</h3><label>日产小包 <input id="daily" type="number" min="0" value="25000"></label><label>静置小时 <input id="hours" type="number" min="0" value="24"></label><label>周转余量 % <input id="reserve" type="number" min="0" value="20"></label><label>元／框 <input id="price" type="number" min="0" step=".01" value="8"></label>
 <div class="metrics"><div>每日组数<strong id="groups"></strong></div><div>含余量筐数<strong id="bins"></strong></div><div>周转筐投入<strong id="amount"></strong></div></div><small>每框 20 包。日产与单价为测算假设，余量覆盖待检、回流和备用占用，具体比例按实际周期确认。</small>
 <div class="table"><table><tr><th>预期效果</th><th>试点怎么验证</th></tr><tr><td>为激活记录提供产线位置和时间</td><td>抽查设备映射、位置来源、时钟状态和激活日志</td></tr><tr><td>维持原线节拍，减少人工接料与整理</td><td>对比同产品同工况的产出、人工工时和周转耗时</td></tr><tr><td>提高分组与追溯可核对性</td><td>核查连续 20 包切组、组框交接、补换和组盒关系</td></tr><tr><td>支持渠道核查</td><td>用有效关联码查询组盒记录，再比对授权渠道与流向</td></tr></table></div></section>
-<section id="trial"><h2>05　与八马确认后启动试点</h2><div class="callout">确认一条试点产线 → 实袋与包装联试 → 三方验收 → 确认后推广</div><ul><li><b>八马</b>确认试点产线、产品规格、包装人员及并行工位数量、产量统计范围、蓝框尺寸、24 小时静置安排及补换规则。</li><li><b>原设备厂家</b>确认出料口空间、机械固定点、原控制接口和安全边界。</li><li><b>实施方</b>提交点位图、北斗接收与授时测试、设备和软件报价及交期。</li><li><b>三方共同</b>确认原线产出基准、试产时长、样本量，以及计数归组、落框、并线、换包和查询的通过条件。</li></ul></section>
+<section id="trial"><h2>05　与八马确认后启动试点</h2><div class="callout">确认一条试点产线 → 实袋与包装联试 → 三方验收 → 确认后推广</div><ul><li><b>八马基础资源</b>提供并承担平台服务器、数据库算力、存储、备份及网络费用。实施方提交配置需求，双方确认部署环境和资源交付时间。</li><li><b>八马</b>确认试点产线、产品规格、包装人员及并行工位数量、产量统计范围、蓝框尺寸、24 小时静置安排及补换规则。</li><li><b>原设备厂家</b>确认出料口空间、机械固定点、原控制接口和安全边界。</li><li><b>实施方</b>提交点位图、北斗接收与授时测试、设备和软件报价及交期。</li><li><b>三方共同</b>确认原线产出基准、试产时长、样本量，以及计数归组、落框、并线、换包和查询的通过条件。</li></ul></section>
 </main><dialog id="viewer"><img alt="分镜或泳道图预览"><nav><button id="prev">上一张</button><button id="next">下一张</button><button id="close">关闭</button></nav></dialog>
 <script>
 const steps=[
