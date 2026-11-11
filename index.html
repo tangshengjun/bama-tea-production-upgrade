@@ -25,15 +25,13 @@
 <tr><td>入斗光电、门位及排空检测</td><td>2,000 元</td></tr>
 <tr><td>电控、布线、接框及主带适配</td><td>8,500 元</td></tr>
 <tr><td><b>改造小计</b></td><td></td><td><b>25,000 元</b></td></tr>
-<tr><td rowspan="3">软件开发</td><td>视觉扫码与激活软件</td><td>25,000 元</td></tr>
-<tr><td>时空码平台发码服务端及组盒关联</td><td>30,000 元</td></tr>
-<tr><td>计数与翻斗控制软件</td><td>10,000 元</td></tr>
-<tr><td><b>软件小计</b></td><td></td><td><b>65,000 元</b></td></tr>
+<tr><td>厂房级 UWB 室内定位</td><td>约 1,000 平方米厂房一次性建设。含基站与安装配套、供电网络、坐标测量与标定、定位引擎授权或适配、首批标签接入、覆盖测试及验收。</td><td>100,000 元</td></tr>
 <tr><td>蓝色周转筐</td><td>1,250 个静置基数＋20% 周转余量，合计 1,500 个 × 8 元</td><td>12,000 元</td></tr>
 <tr><td>安装交付</td><td>安装、联调、试产及培训</td><td>12,000 元</td></tr>
-<tr><td>平台运行基础资源</td><td>服务器、数据库算力、存储、备份及网络，由八马提供并承担费用。按年新增2亿码及实际查询峰值评估配置。</td><td>八马承担<br>不计入本次技改预算</td></tr><tr><td><b>试点总预算</b></td><td><b>含一台打泡机、两个包装工位及周转筐</b></td><td><b>137,000 元</b></td></tr></table></div>
-<p class="callout"><b>试点预算约 14 万元。</b>筐价及 20% 周转余量为测算假设，结合质检、装盒与回筐周期确认。货架按现场已有设施复用，新增货架和年度运维另计。服务器、算力、存储、备份及网络由八马提供并承担费用，实施方负责提出资源需求和部署适配。</p>
-<h3>年度用码费｜分段累进计价</h3><p>按年度累计用码量分段计价，各段费用相加。首年按标准费用减免 20%，第二年起按标准费用结算。用码费与一次性技改投入分别核算。</p>
+<tr><td>平台运行基础资源</td><td>服务器、数据库算力、存储、备份及网络，由八马提供并承担费用。按年新增2亿码及实际查询峰值评估配置。</td><td>八马承担<br>不计入本次技改预算</td></tr><tr><td><b>试点总预算</b></td><td><b>含厂房定位基础设施、一台打泡机、两个包装工位及周转筐</b></td><td><b>172,000 元</b></td></tr></table></div>
+<p class="callout"><b>首次建设预算 17.2 万元。</b>筐价及 20% 周转余量为测算假设，结合质检、装盒与回筐周期确认。货架按现场已有设施复用，新增货架和年度运维另计。服务器、算力、存储、备份及网络由八马提供并承担费用，实施方负责提出资源需求和部署适配。</p>
+<h3>厂房一次建设，后续工位共享</h3><p>10 万元为厂房级 UWB 室内定位建设预算目标，按最终设备清单与验收条件确认。在已验收覆盖区域及约定容量内，后续改造其他打泡机或包装工位，复用现有基站、坐标体系及定位平台，仅核算新增时空码终端、工业相机及主板、定位标签、机械改造和安装适配。扩大覆盖区域或超出容量时另核扩容。</p><p>现有北斗终端需确认 UWB 标签接入能力，定位坐标与北斗基准对齐，授时接入方式在定型时确认。软件开发费按本次约定不单独计入，年度用码费单列。</p>
+<details id="codeFees" style="margin:24px 0;border:1px solid #b9cec3;border-radius:10px;padding:18px"><summary style="cursor:pointer;font-weight:700;font-size:21px;color:#16473D">展开年度用码费用</summary><h3>年度用码费｜分段累进计价</h3><p>按年度累计用码量分段计价，各段费用相加。首年按标准费用减免 20%，第二年起按标准费用结算。用码费与一次性技改投入分别核算。</p>
 <div class="table"><table><tr><th>年度用码分段</th><th>分段单价</th><th>该段最高费用</th><th>档位上限累计标准费用</th><th>首年费用（八折）</th><th>标准综合单价</th></tr>
 <tr><td>前 500 万个</td><td>0.10 元／码</td><td>50 万元</td><td>50 万元</td><td>40 万元</td><td>0.100 元／码</td></tr>
 <tr><td>超过 500 万至 3,000 万个</td><td>0.05 元／码</td><td>125 万元</td><td>175 万元</td><td>140 万元</td><td>约 0.0583 元／码</td></tr>
@@ -43,7 +41,7 @@
 <small>前三档累计费用和综合单价按该档上限计算。服务器、算力与存储由八马承担。</small>
 <p><label>年度用码量（万个） <input id="codeVolume" type="number" min="0" step="1" value="20000"></label></p>
 <div class="metrics"><div>标准年度费用<strong id="standardFee"></strong></div><div>首年费用<strong id="firstFee"></strong></div><div>标准综合单价<strong id="unitFee"></strong></div></div>
-<h3>蓝框静置测算</h3><label>日产小包 <input id="daily" type="number" min="0" value="25000"></label><label>静置小时 <input id="hours" type="number" min="0" value="24"></label><label>周转余量 % <input id="reserve" type="number" min="0" value="20"></label><label>元／框 <input id="price" type="number" min="0" step=".01" value="8"></label>
+</details><h3>蓝框静置测算</h3><label>日产小包 <input id="daily" type="number" min="0" value="25000"></label><label>静置小时 <input id="hours" type="number" min="0" value="24"></label><label>周转余量 % <input id="reserve" type="number" min="0" value="20"></label><label>元／框 <input id="price" type="number" min="0" step=".01" value="8"></label>
 <div class="metrics"><div>每日组数<strong id="groups"></strong></div><div>含余量筐数<strong id="bins"></strong></div><div>周转筐投入<strong id="amount"></strong></div></div><small>每框 20 包。日产与单价为测算假设，余量覆盖待检、回流和备用占用，具体比例按实际周期确认。</small>
 <div class="table"><table><tr><th>预期效果</th><th>试点怎么验证</th></tr><tr><td>为激活记录提供产线位置和时间</td><td>抽查设备映射、位置来源、时钟状态和激活日志</td></tr><tr><td>维持原线节拍，减少人工接料与整理</td><td>对比同产品同工况的产出、人工工时和周转耗时</td></tr><tr><td>提高分组与追溯可核对性</td><td>核查连续 20 包切组、组框交接、补换和组盒关系</td></tr><tr><td>支持渠道核查</td><td>用有效关联码查询组盒记录，再比对授权渠道与流向</td></tr></table></div></section>
 <section id="trial"><h2>05　与八马确认后启动试点</h2><div class="callout">确认一条试点产线 → 实袋与包装联试 → 三方验收 → 确认后推广</div><ul><li><b>八马基础资源</b>提供并承担平台服务器、数据库算力、存储、备份及网络费用。实施方提交配置需求，双方确认部署环境和资源交付时间。</li><li><b>八马</b>确认试点产线、产品规格、包装人员及并行工位数量、产量统计范围、蓝框尺寸、24 小时静置安排及补换规则。</li><li><b>原设备厂家</b>确认出料口空间、机械固定点、原控制接口和安全边界。</li><li><b>实施方</b>提交点位图、北斗接收与授时测试、设备和软件报价及交期。</li><li><b>三方共同</b>确认原线产出基准、试产时长、样本量，以及计数归组、落框、并线、换包和查询的通过条件。</li></ul></section>
